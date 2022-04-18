@@ -135,21 +135,6 @@ function blanker_widgets_init() {
 add_action( 'widgets_init', 'blanker_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
- */
-function blanker_scripts() {
-	wp_enqueue_style( 'blanker-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'blanker-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'blanker-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'blanker_scripts' );
-
-/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
